@@ -7,7 +7,9 @@ use App\Company;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+
 
 class CompanyController extends Controller
 {
@@ -66,10 +68,14 @@ class CompanyController extends Controller
         $user->company()->create([
             'phone'         => request()->phone,
             'contact_phone' => request()->contact_phone,
-            'slug_form'     => $company_name."/".$code,
-            // 'user_id', $user->id
+            'slug_form'     => $company_name."-".$code,
         ]);
-        // $company->fill(['user_id', $user->id])->save();
+
+        if(request()->file('logo')){
+            $path = Storage::disk('public')->put('image', request()->file('logo'));
+            $user->company->fill(['logo' => asset($path) ])->save();
+        }
+        $user->assignRole('admin_company');
 
 
         $msg = 'Company has created updated successfully';
