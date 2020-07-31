@@ -44,7 +44,14 @@ Route::prefix('/admin')->middleware('auth')->group( function () {
     Route::get('/dashboard', 'HomeController@index')->name('home');
 
     Route::resource('clients','ClientController')->middleware('role:admin_company');
-    Route::resource('companies','CompanyController')->middleware('role:super_admin');;
+    Route::resource('companies','CompanyController')->middleware('role:super_admin');
+
+
+    Route::get('profile','companies\CompanyProfileController@index')
+        ->middleware('role:admin_company')->name('company.profile');
+
+    Route::put('profile/{company}','companies\CompanyProfileController@update')
+        ->middleware('role:admin_company')->name('company.profile.update');
 
 });
 // Route::get('/home', 'HomeController@index')->name('home');

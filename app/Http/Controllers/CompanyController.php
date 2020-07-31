@@ -22,7 +22,7 @@ class CompanyController extends Controller
     {
 
         $companies = Company::with('user')->get();
-        return view('companies.index', compact('companies'));
+        return view('admin.companies.index', compact('companies'));
 
     }
 
@@ -34,7 +34,7 @@ class CompanyController extends Controller
     public function create()
     {
         $company = new Company;
-        return view('companies.create', compact('company'));
+        return view('admin.companies.create', compact('company'));
     }
 
     /**
@@ -54,7 +54,7 @@ class CompanyController extends Controller
             'password_confirmation' => ['required']
         ]);
 
-        $company_name = str_replace(' ', '-', request()->name);
+        // $company_name = str_replace(' ', '-', request()->name);
         $code = $random = Str::random(10);
 
         $user = User::create([
@@ -68,7 +68,8 @@ class CompanyController extends Controller
         $user->company()->create([
             'phone'         => request()->phone,
             'contact_phone' => request()->contact_phone,
-            'slug_form'     => $company_name."-".$code,
+            // 'slug_form'     => $company_name."-".$code,
+            'slug_form'     => $code,
         ]);
 
         if(request()->file('logo')){
@@ -79,7 +80,7 @@ class CompanyController extends Controller
 
 
         $msg = 'Company has created updated successfully';
-        return redirect()->route('companies.index')->with('success', $msg);
+        return redirect()->route('admin.companies.index')->with('success', $msg);
     }
 
     /**
@@ -101,7 +102,7 @@ class CompanyController extends Controller
      */
     public function edit(Company $company)
     {
-        return view('companies.edit', compact('company'));
+        return view('admin.companies.edit', compact('company'));
     }
 
     /**
@@ -119,8 +120,7 @@ class CompanyController extends Controller
             'slug_form'     => request()->slug_form
         ]);
         $msg = 'Company has been updated successfully';
-        return redirect()->route('companies.index')->with('success', $msg);
-        // return view('companies.create', compact('companies'));
+        return redirect()->route('admin.companies.index')->with('success', $msg);
     }
 
     /**
@@ -136,6 +136,6 @@ class CompanyController extends Controller
 
         $user->delete();
         $msg = 'Company has been deleted successfully';
-        return redirect()->route('companies.index')->with('success', $msg);
+        return redirect()->route('admin.companies.index')->with('success', $msg);
     }
 }
