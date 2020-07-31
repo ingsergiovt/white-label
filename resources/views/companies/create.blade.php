@@ -25,7 +25,7 @@
             <div class="col-12 col-md-10 m-auto">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{route('companies.store')}}" method="POST">
+                        <form action="{{route('companies.store')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @include('companies.partials._form_create')
                             <div class="form-row">

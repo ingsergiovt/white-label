@@ -187,7 +187,7 @@
 
 
 
-@push('js')
+@push('scripts')
     <script>
 
         document.getElementById('vehicle_year').addEventListener('change', () => {

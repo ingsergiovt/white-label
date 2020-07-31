@@ -74,9 +74,9 @@
                     </div>
 
                     <div class="form-group col-md-12">
-                        <label for="phone">Phone</label>
+                        <label for="phone">Phone*</label>
                         <input type="text" name="phone" id="phone" class="form-control @error('phone')@enderror" placeholder="Phone"
-                            value="{{ old('phone')}}">
+                            value="{{ old('phone')}}" required>
                             @error('phone')@enderror
                     </div>
                 </div>
@@ -84,10 +84,10 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-12">
-                <label for="contact_phone">Contact Phone</label>
+                <label for="contact_phone">Contact Phone*</label>
                 <input type="text" name="contact_phone" id="contact_phone"
                 class="form-control @error('contact_phone')@enderror" placeholder="Contact Phone"
-                    value="{{ old('Contact Phone')}}">
+                    value="{{ old('Contact Phone')}}" required>
                     @error('contact_phone')@enderror
             </div>
         </div>

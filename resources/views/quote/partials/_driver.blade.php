@@ -60,7 +60,7 @@
         </div>
         <div class="col-12 col-md-2">
             <input type="text" class="form-control form-control-sm" id="birth_year" name="birth_year" placeholder="YYYY"
-            value="@isset($quote) {{ $quote->vehicle_anual_milage }} @endisset">
+            value="@isset($quote) {{ $quote->birth_year }} @endisset">
             <div class="invalid-feedback">
                 Looks good!
             </div>

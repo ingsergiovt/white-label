@@ -161,7 +161,7 @@
     </div>
 @endsection
 
-@section('scripts')
+@push('scripts')
     <script>
 
         const firstContinue     = document.getElementById('first_continue');
@@ -321,7 +321,7 @@
         });
 
         firstContinue.addEventListener('click', e => {
-
+            alert('qioads')
             submiterProfileForm('form_profile')
                 .then(function(resp){
                     console.log(resp)
@@ -442,4 +442,4 @@
 
 
     </script>
-@endsection
+@endpush
