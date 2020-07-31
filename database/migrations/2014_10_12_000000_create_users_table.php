@@ -20,6 +20,9 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->string('user_image')->nullable();
+            // $table->foreignId('account_type_id')->nullable();
+            // $table->foreign('account_type_id')->references('id')->on('account_types')->onDelete('cascade');
             $table->timestamps();
         });
     }

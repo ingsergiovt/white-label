@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        // $user = User::find(2);
+        // $company = Company::find(1);
+
+        // return $user->company;
+
         return view('home');
     }
 }
