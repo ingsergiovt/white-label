@@ -25,14 +25,15 @@
             <div class="col-12 col-md-10 m-auto">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{route('companies.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{route('companies.update', $company->id)}}" method="POST">
+                            @method('put')
                             @csrf
-                            @include('companies.partials._form_create')
-                            <div class="form-row">
+                            @include('admin.companies.partials._form')
+                            {{-- <div class="form-row">
                                 <div class="col-md-12 text-right ">
-                                    <button class="btn btn-primary btn-block">Send</button>
+                                    <button class="btn btn-primary btn-block">Update</button>
                                 </div>
-                            </div>
+                            </div> --}}
                         </form>
                     </div>
                 </div>
