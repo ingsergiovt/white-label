@@ -30,7 +30,7 @@ class QuoteFormVehicleRequest extends FormRequest
             'vehicle_number_id'     => 'required',
             'vehicle_anual_milage'  => 'required',
             'vehicle_use'           => 'required',
-            'vehicle_miles_work'    => 'required',
+            // 'vehicle_miles_work'    => 'required',
             'vehicle_category'      => 'required',
             // 'vehicle_wheel_drive'   => 'required',
             'vehicle_body_type'     => 'required',

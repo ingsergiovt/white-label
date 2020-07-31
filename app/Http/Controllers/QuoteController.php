@@ -7,6 +7,7 @@ use App\Quote;
 use App\Company;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\QuoteFormDriverRequest;
 use App\Http\Requests\QuoteFormProfileRequest;
 use App\Http\Requests\QuoteFormVehicleRequest;
 
@@ -177,7 +178,7 @@ class QuoteController extends Controller
 
     }
 
-    public function store_driver(Request $request)
+    public function store_driver(QuoteFormDriverRequest $request)
     {
 
         // return request()->all();
